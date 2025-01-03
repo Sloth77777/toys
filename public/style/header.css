@@ -1,0 +1,293 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.img_discount {
+    background: #100D08;
+    display: grid;
+    place-items: center;
+}
+
+.container {
+    margin: 0 350px 0 340px;
+}
+
+.above_menu ul, .menu_icon ul, .desktop-header ul, .logo_search ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.above_menu li, .logo_search li, .desktop-header li, .menu_icon li {
+    margin-right: 20px;
+}
+
+.above_menu {
+    background: #faf9f9;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    padding-right: 280px;
+}
+
+.above_menu a {
+    color: #656565;
+    text-decoration: none;
+    padding: 0 7px;
+    height: 48px;
+    line-height: 48px;
+    z-index: 12;
+    font-size: 14px;
+}
+
+.logo_search {
+    padding: 10px 36px 11px 16px;
+    margin: 0 250px 0 350px;
+    display: flex;
+    align-items: center;
+}
+
+.logo_search img {
+    width: 148px;
+    height: auto;
+}
+
+.menu_icon {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.desktop-header {
+    list-style-type: none;
+    padding: 0;
+    margin-left: -43px;
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    margin: 0 50px;
+}
+
+.form-control {
+    width: 280px;
+    align-items: center;
+    border-radius: 4px 0 0 4px;
+    border: #777777 1px solid;
+    padding: 13px;
+}
+
+.btn {
+    border-radius: 0 4px 4px 0;
+    margin-left: -5px;
+    padding: 14px;
+    background: #EC008C;
+    border: none;
+    color: #fff;
+}
+
+.phone img {
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    padding: 0 10px;
+}
+
+
+.phone {
+    display: flex;
+    align-items: center;
+}
+
+.menu_icon {
+    margin: 0 0 0 120px;
+}
+
+.menu_icon img {
+    display: flex;
+    justify-content: right;
+    width: 40px;
+    height: 40px;
+}
+
+.menu_icon a {
+    text-decoration: none;
+}
+
+.menu_icon span {
+    color: #2e2e2e;
+}
+
+header {
+    background: #EC008C;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0 12px;
+    height: 48px;
+    line-height: 48px;
+    min-width: 80px;
+    z-index: 12;
+}
+
+.under_cap {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu {
+    cursor: pointer;
+    background: #4244B7;
+    font-size: 18px;
+    color: #fff;
+    text-decoration: none;
+    padding: 0 12px;
+    height: 48px;
+    line-height: 48px;
+    min-width: 80px;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu img {
+    width: 20px;
+    height: 20px;
+    padding-right: 20px;
+    padding-left: 20px;
+    vertical-align: middle;
+}
+
+.navBaseWr {
+    display: flex;
+    flex-direction: column;
+}
+
+.navBaseWr a {
+    width: auto;
+    height: auto;
+    font-size: 15px;
+    text-decoration: none;
+    color: #000000;
+}
+
+.burger-menu ul {
+    display: none;
+}
+
+.burger-menu li {
+    margin: 10px 0;
+}
+
+@media (max-width: 768px) {
+    .container {
+        display: block;
+    }
+
+    .desktop-header {
+        display: none;
+    }
+
+    header img {
+        display: none;
+    }
+
+    .burger-menu {
+        width: 100%;
+        display: block;
+        font-size: 12px;
+        cursor: pointer;
+    }
+
+    .burger-menu .burger-img {
+        display: block;
+        width: 20px;
+        height: 20px;
+        padding: 10px;
+    }
+
+    .img_discount, .above_menu {
+        display: none;
+    }
+
+    .logo_search {
+        justify-content: center;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column; /* Меняем направление на колонку */
+        align-items: center;
+        width: 100%;
+        padding: 10px 20px;
+    }
+
+    .logo_search img {
+        width: 150px;
+        margin-bottom: 20px;
+    }
+
+    .phone, .menu_icon {
+        display: none;
+    }
+
+    .logo_search form {
+        width: 100%; /* Форма на всю ширину */
+        display: flex;
+        flex-direction: row; /* Строка для полей ввода и кнопки */
+        justify-content: center;
+        align-items: center;
+    }
+
+    .form {
+        margin: 0 10px;
+    }
+
+    .form-control {
+        width: 70%;
+        margin-right: 10px;
+        padding: 10px;
+        font-size: 14px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+    }
+
+    .btn {
+        width: auto;
+        padding: 10px 20px;
+        background-color: #EC008C;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+
+    header {
+        padding: 10px 0;
+    }
+}
+
+@media (min-width: 769px) {
+    .desktop-header {
+        display: block;
+    }
+
+    .burger-menu {
+        display: none;
+    }
+}

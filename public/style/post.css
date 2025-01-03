@@ -1,0 +1,233 @@
+.path {
+    margin: 10px;
+    color: #434343;
+}
+
+.post_one {
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    padding: 15px;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+.main_img_post {
+    width: 53%;
+    height: auto;
+    margin-right: 15px;
+    border: 1px solid #c8c8c8;
+    border-radius: 10px;
+}
+
+.content {
+    flex: 1;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.title_post {
+    margin: 40px;
+    font-size: 25px;
+    text-decoration: none;
+    color: #434343;
+}
+
+.post_one span {
+    display: block;
+    padding-right: 10px;
+}
+
+.title_category {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: #777;
+}
+
+.description {
+    font-size: 16px;
+    color: #555;
+    margin-top: 10px;
+}
+
+.price {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin-top: 15px;
+}
+
+.post_one button, .post button , .posts_recommendations button {
+    background: #004ca5;
+    color: #fff;
+    border: none;
+    font-size: 24px;
+    font-weight: bold;
+    width: 270px;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    text-align: center;
+    display: inline-block;
+}
+
+.post_one button:hover {
+    background-color: #EC008C;
+}
+
+.buy {
+    background: #E9E9F7;
+    border-radius: 15px;
+    padding-top: 10px;
+    margin-top: 20px;
+}
+
+.buy img{
+    width: 30px;
+    height: auto;
+    align-items: center;
+    justify-items: center;
+    margin-bottom: -7px;
+}
+
+
+.buy_span {
+    font-size: 12px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.post_one_content {
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    padding: 15px;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+.characteristics {
+    padding: 20px;
+    width: 50%;
+    height: auto;
+    margin-right: 15px;
+    border: 1px solid #c8c8c8;
+}
+
+.description {
+    padding: 20px;
+    border: 1px solid #c8c8c8;
+    flex: 1;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.posts {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.post {
+    min-width: 100%;
+    display: none;
+    box-sizing: border-box;
+}
+
+.post:first-child {
+    display: flex;
+}
+
+.delivery {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.delivery ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.delivery li {
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 13px;
+    padding: 11px;
+    text-decoration: none;
+    border-bottom: 1px solid #ddd; /* Лінія між елементами */
+}
+
+.delivery img {
+    width: 24px;
+    height: 24px;
+    margin-right: 15px; /* Відступ між іконкою та текстом */
+}
+
+.delivery span {
+    margin-left: auto;
+    color: #777;
+    padding-left: 10px;
+}
+.delivery button{
+    text-decoration: none;
+    font-size: 12px;
+    background: #dddddd;
+    color: blue;
+    height: 28px;
+    width: 150px;
+    align-items: center;
+    justify-items: center;
+    margin-left: 40px;
+}
+
+.delivery button:hover{
+    color: white;
+}
+
+.posts_recommendations{
+    display: flex;
+    margin: 10px;
+    flex-direction: row;
+    padding: 15px;
+    box-sizing: border-box;
+}
+.post_recommendations{
+    margin: 10px;
+    border: 1px solid #e1e1e1;
+    border-radius: 5px;
+    width: calc(33% - 10px);
+    flex-direction: row;
+    padding: 15px;
+    box-sizing: border-box;
+    align-items: center;
+}
+.post_recommendations a{
+    text-decoration: none;
+    color: #474747;
+}
+.category_title_span{
+    color: #4a5568;
+}
+.price_product_span{
+    color: #a14747;
+}
+.posts_recommendations span{
+    font-size: 14px;
+}
+
+.post_recommendations img{
+    width: 310px;
+    height: auto;
+}

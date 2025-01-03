@@ -1,0 +1,349 @@
+.row {
+    display: flex;
+    justify-content: left;
+}
+
+.img-tir img {
+    padding: 5px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.money_form {
+    text-align: center;
+    border-radius: 8px;
+    border: 1px solid #cfcfcf;
+    height: 495px;
+    width: 275px;
+}
+
+.money_form h3 {
+    margin-left: -20px;
+}
+
+.money_form p {
+    margin-left: -20px;
+}
+
+.form-select, .money_form input {
+    background: white;
+    border: 1px solid #cacaca;
+    border-radius: 5px;
+    margin: 5px 5px 5px -20px;
+}
+
+.form-select {
+    margin-left: -20px;
+    width: 210px;
+    height: 40px;
+    padding: 10px;
+}
+
+.money_form input {
+    margin-left: -20px;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    height: 40px;
+}
+
+.money_form button {
+    font-size: 15px;
+    background: #4244B7;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    margin: 10px 10px 10px -20px;
+    width: 99%;
+    border-radius: 8px;
+}
+
+.money_form h3 {
+    padding: 15px;
+    text-align: center;
+}
+
+.under_cap li {
+    display: flex;
+    /*justify-content: space-between;*/
+    justify-content: left;
+    margin-right: 13px;
+    align-items: center;
+}
+.under_cap li a {
+    text-decoration: none;
+    font-size: 15px;
+    color: #323131;
+    padding: 3px;
+    margin-left: -40px;
+}
+
+.catalog_img {
+    width: 21px;
+    height: 21px;
+    align-items: center;
+    vertical-align: middle;
+}
+
+.catalog_img_2 {
+    width: 11px;
+    height: 11px;
+    margin-left: auto;
+}
+
+.carousel {
+    position: relative;
+    width: 50%;
+    margin-bottom: 30px;
+}
+
+.carousel h2 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding: 20px;
+}
+
+.carousel-container {
+    display: flex;
+}
+
+.posts {
+    display: flex;
+    flex-shrink: 0;
+    width: 50%;
+    justify-content: space-between;
+}
+
+.post {
+        /*width: calc(20% - 10px);*/
+    display: flex;
+    flex-direction: column;
+    border: #b1b1b1 solid 1px;
+    border-radius: 5px;
+    padding: 15px;
+    box-sizing: border-box;
+    text-align: center;
+}
+.post a{
+    text-decoration: none;
+    color: #434343;
+}
+
+.post img {
+    width: 100%;
+    margin-bottom: 10px;
+    display: flex;
+}
+
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    color: white;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 3px;
+}
+
+.prev {
+    left: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.next {
+    right: 0;
+    border-radius: 0 3px 3px 0;
+}
+
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+.comment-form {
+    position: relative;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 100%;
+    align-items: center;
+    justify-items: center;
+    display: block;
+    max-width: 100%;
+}
+
+.comment-form h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #333;
+    resize: vertical;
+}
+
+.form-group textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.comment-form button {
+    width: 400px;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+
+@media (max-width: 768px) {
+    .row, .img-tir, .catalog_img, .catalog_img_2 {
+        display: none;
+    }
+
+    .carousel {
+        width: 100%;
+
+    }
+
+    .carousel .posts .post a {
+        font-size: 12px;
+    }
+
+    .carousel .posts .post button {
+        font-size: 14px;
+    }
+
+    .container {
+        margin: 0;
+        padding: 0;
+    }
+
+    .money_form {
+        width: 100%;
+        padding: 15px;
+        margin: 0 auto;
+        justify-content: center;
+    }
+
+    .money_form form {
+        display: flex;
+        flex-direction: column; /* Располагаем поля и кнопки в колонку */
+        width: 90%;
+        align-items: center;
+    }
+
+    .money_form .form-control {
+        width: 100%;
+        margin-bottom: 15px;
+        padding: 12px;
+        font-size: 14px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .money_form .btn {
+        width: 100%;
+        padding: 14px;
+        color: #fff;
+        border-radius: 4px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .carousel-container {
+        display: none;
+    }
+
+    .phone {
+        display: none;
+    }
+
+    .menu_icon {
+        display: none;
+    }
+}
+
+.text {
+    max-height: 143px; /* Висота тексту, що видно */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.text li {
+    margin: 0;
+    padding: 3px;
+    display: flex;
+}
+
+.text-container.expanded .text {
+    max-height: none; /* Показати весь текст */
+    white-space: normal;
+}
+
+.read-more {
+    display: inline-block;
+    margin-top: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+@media (max-width: 768px) {
+    .text{
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+}
