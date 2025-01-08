@@ -18,7 +18,7 @@ class ProductService
         $imageName = Str::random(20) . '.' . $image->extension();
         $path = Storage::disk('public')->putFileAs('images/products', $image, $imageName);
         $data['image'] = $path;
-        Product::firstOrCreate($data);
+        Product::query()->firstOrCreate($data);
 
         return $this;
     }
@@ -29,7 +29,7 @@ class ProductService
         $imageName = Str::random(20) . '.' . $image->extension();
         $path = Storage::disk('public')->putFileAs('images/products', $image, $imageName);
         $data['image'] = $path;
-        $product = Product::findOrFail($id);
+        $product = Product::query()->findOrFail($id);
         $product->update($data);
 
         return $this;
@@ -37,15 +37,15 @@ class ProductService
 
     public function delete(int $id): self
     {
-        $product = Product::findOrFail($id);
+        $product = Product::query()->findOrFail($id);
         $product->delete();
 
         return $this;
     }
 
-    public function getLimitedProducts($limit)
+    public function getLimitedProducts($limit): Collection
     {
-        return Product::limit($limit)->get();
+        return Product::query()->limit($limit)->get();
     }
 
     /**
@@ -71,11 +71,13 @@ class ProductService
             ->whereIn('id', $randomIds)
             ->paginate($limit);
     }
+
     public function getRelatedProducts(Product $product): Collection
     {
-        return Product::where('category_id', $product->category_id)
-            ->where('id' , '!=', $product->id)
-            ->take(3)
+        return Product::query()
+            ->where('category_id', $product->category_id)
+            ->where('id', '!=', $product->id)
+            ->limit(3)
             ->get();
     }
 }

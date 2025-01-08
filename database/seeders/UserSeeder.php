@@ -2,17 +2,14 @@
 
 namespace Database\Seeders;
 
-use App\Models\Permission;
-use App\Models\Product;
-use App\Models\ProductCategory;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+class UserSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Run the database seeds.
      */
     public function run(): void
     {
@@ -21,8 +18,5 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
-        ProductCategory::factory()->count(2)->create();
-        Product::factory()->count(6)->create();
-        Permission::factory()->count(2)->create();
     }
 }

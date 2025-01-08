@@ -20,7 +20,7 @@ class CategoryController extends Controller
 
     public function index(): View
     {
-        $categories = ProductCategory::paginate(10);
+        $categories = ProductCategory::query()->paginate(10);
 
         return view('admin.categories.categories', compact('categories'), [
             'categories' => $categories

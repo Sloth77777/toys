@@ -11,11 +11,11 @@ class Comment extends Model
     protected $table = 'comments';
    protected $guarded = false;
 
-   public function user()
+   public function user(): void
    {
        $this->belongsTo(User::class);
    }
-   public function product()
+   public function product(): void
    {
        $this->belongsTo(Product::class);
    }

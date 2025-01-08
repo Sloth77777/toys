@@ -16,21 +16,12 @@ class RoleService
             'title' => $data['title'],
         ]);
 
-        // Привязываем разрешения, если они есть
-        if (isset($data['permissions'])) {
+        if (!empty($data['permissions'])) {
             $role->permissions()->sync($data['permissions']);
-        }
-
-        // Создаем разрешения, если они переданы
-        if (isset($data['permissions'])) {
-            foreach ($data['permissions'] as $permissionId) {
-                Permission::firstOrCreate(['id' => $permissionId]);
-            }
         }
 
         return $this;
     }
-
     public function update(int $id, array $data): self
     {
         $role = Role::findOrFail($id);

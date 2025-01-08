@@ -20,7 +20,7 @@ class OrderController extends Controller
 
     public function index(): View
     {
-        $orders = Order::paginate(10);
+        $orders = Order::query()->paginate(10);
 
         return view('admin.orders.orders', [
             'orders' => $orders
@@ -49,7 +49,7 @@ class OrderController extends Controller
     {
         $this->orderService->update($id, $request->validated());
 
-        return redirect()->route('admin.orders.index')->with('success', 'Product updated successfully.');
+        return redirect()->route('admin.orders.index')->with('success', 'ProductSeeder updated successfully.');
     }
 
     public function destroy(int $id): RedirectResponse

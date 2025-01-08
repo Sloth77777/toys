@@ -9,29 +9,32 @@ use Illuminate\Database\Eloquent\Collection;
 
 class CategoryService
 {
+
     public function store(array $data): self
     {
-        ProductCategory::create(['title' => $data['title']]);
+        ProductCategory::query()->create(['title' => $data['title']]);
         return $this;
     }
 
     public function update(int $id, array $data): self
     {
-        $product = ProductCategory::findOrFail($id);
+        $product = ProductCategory::query()->findOrFail($id);
         $product->update($data);
         return $this;
     }
 
     public function delete($id): self
     {
-        $product = ProductCategory::findOrFail($id);
+        $product = ProductCategory::query()->findOrFail($id);
         $product->delete();
         return $this;
     }
+
     public function getAllCategories(): Collection
     {
         return ProductCategory::all();
     }
+
     public function getOneCategory(int $id)
     {
         return ProductCategory::query()->findOrFail($id);

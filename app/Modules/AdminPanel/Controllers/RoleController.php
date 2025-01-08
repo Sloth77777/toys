@@ -29,9 +29,6 @@ class RoleController extends Controller
         return view('admin.roles.roles', compact('roles'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create(): View
     {
         $roles = Role::all();
@@ -42,50 +39,29 @@ class RoleController extends Controller
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(StoreRoleRequest $request): RedirectResponse
     {
         $this->roleService->store($request->validated());
-        return redirect()->route('admin.roles.index')->with('success', 'Продукт успешно добавлен!');
+        return redirect()->route('admin.roles.index')->with('success', 'Роль успешно добавлена!');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Role $role)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(int $id): View
     {
-        $role = Role::findOrFail($id);
+        $role = Role::query()->findOrFail($id);
         $permissions = Permission::all();
 
         return view('admin.roles.edit', ['role' => $role, 'permissions' => $permissions]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(UpdateRoleRequest $request, int $id): RedirectResponse
     {
         $this->roleService->update($id, $request->validated());
-        return redirect()->route('admin.roles.index')->with('success', 'Product updated successfully.');
+        return redirect()->route('admin.roles.index')->with('success', 'Роль успешно обновлена!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy($id): RedirectResponse
+    public function destroy(int $id): RedirectResponse
     {
         $this->roleService->delete($id);
-
-        return redirect()->route('admin.roles.index')->with('success', 'Продукт успешно удалён.');
+        return redirect()->route('admin.roles.index')->with('success', 'Роль успешно удалена!');
     }
 }

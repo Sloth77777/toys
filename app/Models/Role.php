@@ -15,12 +15,14 @@ class Role extends Model
     use HasFactory;
 
     public $table = 'roles';
-    public function permissions():BelongsToMany
+
+    public function permissions(): BelongsToMany
     {
-        return $this->belongsToMany(Permission::class , 'role_has_permission','permission_id','role_id');
+        return $this->belongsToMany(Permission::class, 'role_has_permission');
     }
-//    public function users():BelongsToMany
-//    {
-//        return $this->belongsToMany(User::class , 'role_user','role_id','user_id');
-//    }
+
+    public function users():BelongsToMany
+    {
+        return $this->belongsToMany(User::class , 'role_user','role_id','user_id');
+    }
 }

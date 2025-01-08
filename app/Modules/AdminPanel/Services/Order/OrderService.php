@@ -9,20 +9,20 @@ class OrderService
 {
     public function store(array $data): self
     {
-        Order::create($data);
+        Order::query()->create($data);
         return $this;
     }
 
     public function update(int $id, array $data): self
     {
-        $product = Order::findOrFail($id);
+        $product = Order::query()->findOrFail($id);
         $product->update($data);
         return $this;
     }
 
     public function delete(int $id): self
     {
-        $product = Order::find($id);
+        $product = Order::query()->find($id);
         $product->delete();
         return $this;
     }

@@ -4,7 +4,7 @@
 //
 //use App\Http\Requests\Comment\CommentProductRequest;
 //use App\Models\Comment;
-//use App\Models\Product;
+//use App\Models\ProductSeeder;
 //use App\Modules\Web\Controllers\Controller;
 //use Illuminate\Database\Eloquent\Factories\HasFactory;
 //use Illuminate\Http\Request;
@@ -54,7 +54,7 @@
 //     */
 //    public function show($product_id)
 //    {
-//        $product = Product::findOrFail($product_id);
+//        $product = ProductSeeder::findOrFail($product_id);
 //        $comments = Comment::where('product_id', $product_id)->sortByDesc('created_at')->get();
 //
 //        return view('main.home.comment', compact('comments', 'product'));

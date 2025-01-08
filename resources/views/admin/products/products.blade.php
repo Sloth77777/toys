@@ -28,9 +28,10 @@
                                                class="transition-all duration-100 ease-in-out shadow-sm border-slate-200 cursor-pointer rounded focus:ring-4 focus:ring-offset-0 focus:ring-primary focus:ring-opacity-20 dark:bg-darkmode-800 dark:border-transparent dark:focus:ring-slate-700 dark:focus:ring-opacity-50 [&[type='radio']]:checked:bg-primary [&[type='radio']]:checked:border-primary [&[type='radio']]:checked:border-opacity-10 [&[type='checkbox']]:checked:bg-primary [&[type='checkbox']]:checked:border-primary [&[type='checkbox']]:checked:border-opacity-10 [&:disabled:not(:checked)]:bg-slate-100 [&:disabled:not(:checked)]:cursor-not-allowed [&:disabled:not(:checked)]:dark:bg-darkmode-800/50 [&:disabled:checked]:opacity-70 [&:disabled:checked]:cursor-not-allowed [&:disabled:checked]:dark:bg-darkmode-800/50">
                                     </td>
                                     <td data-tw-merge=""
-                                        class="px-5 border-b dark:border-darkmode-300 border-t border-slate-200/60 bg-slate-50 py-4 font-medium text-slate-500">
+                                        class="px-5 border-b dark:border-darkmode-300 border-t border-slate-200/60 bg-slate-50 py-2 font-medium text-slate-500">
                                         Title
                                     </td>
+
                                     <td data-tw-merge=""
                                         class="px-5 border-b dark:border-darkmode-300 border-t border-slate-200/60 bg-slate-50 py-4 font-medium text-slate-500">
                                         Description
@@ -75,16 +76,16 @@
                                                    class="transition-all duration-100 ease-in-out shadow-sm border-slate-200 cursor-pointer rounded focus:ring-4 focus:ring-offset-0 focus:ring-primary focus:ring-opacity-20 dark:bg-darkmode-800 dark:border-transparent dark:focus:ring-slate-700 dark:focus:ring-opacity-50">
                                         </td>
                                         <td data-tw-merge=""
-                                            class="px-5 border-b dark:border-darkmode-300 border-dashed py-4 dark:bg-darkmode-600 w-1/6">
+                                            class="px-5 border-b dark:border-darkmode-300 border-dashed py-4 dark:bg-darkmode-600 w-1/5">
                                             <div class="flex items-center">
                                                 <div class="ml-3.5">
-                                                    <a class="whitespace-nowrap font-medium text-decoration-none "
-                                                       href="">
+                                                    <a class="whitespace-nowrap font-medium text-decoration-none" href="">
                                                         {{ $product->title }}
                                                     </a>
                                                 </div>
                                             </div>
                                         </td>
+
                                         <td data-tw-merge=""
                                             class="px-5 border-b dark:border-darkmode-300 border-dashed py-4 dark:bg-darkmode-600 w-1/6">
                                             <div class="flex items-center">

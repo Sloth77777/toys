@@ -6,7 +6,7 @@
         <div class="d-flex flex-column flex-md-row ms-md-auto">
             <a href="{{ route('admin.orders.create') }}"
                class="btn btn-outline-primary text-decoration-none d-flex align-items-center">
-                Add New Product
+                Add New Order
             </a>
         </div>
         <div class="mt-3.5 flex flex-col gap-8">

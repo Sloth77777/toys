@@ -20,7 +20,7 @@ class ProductController extends Controller
     }
     public function index(): View
     {
-        $products = Product::paginate(10);
+        $products = Product::query()->paginate(10);
 
         return view('admin.products.products', [
             'products' => $products
@@ -50,7 +50,7 @@ class ProductController extends Controller
     public function update(UpdateProductRequest $request, int $id): RedirectResponse
     {
         $this->productService->update($id, $request->validated());
-        return redirect()->route('admin.products.index')->with('success', 'Product updated successfully.');
+        return redirect()->route('admin.products.index')->with('success', 'ProductSeeder updated successfully.');
     }
 
     public function destroy(int $id): RedirectResponse
