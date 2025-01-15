@@ -76,7 +76,7 @@
                                         </td>
 
                                         <x-admin.td-product :style="'width: 200px'">
-                                            <a class="font-medium text-decoration-none" href="">
+                                            <a class="font-medium text-decoration-none" href="{{ route('main.home.show', $product->id) }}">
                                                 {{ $product->title }}
                                             </a>
                                         </x-admin.td-product>

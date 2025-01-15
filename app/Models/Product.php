@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
-//use App\Models\Trait\HasSlug; нужно будет включить
+use App\Models\Trait\HasSlug; // нужно будет включить
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -15,7 +15,7 @@ class Product extends Model
 {
     use SoftDeletes;
     use HasFactory;
-    // use HasSlug; работает если нужно включить, добавишь resource и api туда-сюда
+//    use HasSlug;
 
     protected $table = 'products';
     protected $fillable = [

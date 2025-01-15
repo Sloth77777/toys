@@ -64,7 +64,9 @@
                                             class="px-5 border-b dark:border-darkmode-300 w-80 border-dashed py-4 dark:bg-darkmode-600">
                                             <div class="flex items-center">
                                                 <div class="ml-3.5">
+                                                    <a class="font-medium text-decoration-none" href="{{ route('main.home.categories.show', ['category' => $category->id]) }}">
                                                     {{ $category->title }}
+                                                    </a>
                                                 </div>
                                             </div>
                                         </td>

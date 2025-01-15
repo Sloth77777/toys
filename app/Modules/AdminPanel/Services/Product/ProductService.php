@@ -29,6 +29,7 @@ class ProductService
         $imageName = Str::random(20) . '.' . $image->extension();
         $path = Storage::disk('public')->putFileAs('images/products', $image, $imageName);
         $data['image'] = $path;
+
         $product = Product::query()->findOrFail($id);
         $product->update($data);
 

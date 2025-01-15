@@ -77,36 +77,27 @@
 </div>
 <div class="container">
     <main>
-        <div class="carousel" id="carousel1">
-            <h2><img src="{{asset('img/12.png')}}" alt="" class="catalog_img"> Сезонные товары</h2>
-            <div class="carousel-container">
+        <div class="">
+            @foreach ($product_pag as $product)
 
-                @foreach ($product_pag as $product)
-                        <div class="post">
-                            <div class="product_image">
-                                <img src="{{ Storage::url($product->image) }}" alt="{{ $product->title }}">
-                            </div>
-                            <div class="product_info">
-                                <a href="{{ route('main.home.show', $product->id) }}" class="product_title">
-                                    <b>{{ $product->title }}</b>
-                                </a>
-                                <br>
-                                <span class="category_title_span">Категория : {{$category->title}}</span>
-                                <br>
-                                <p class="product_description">{{ $product->description }}</p>
-                                <p class="price_product_span">Цена: <span
-                                        class="price">{{ $product->price }} руб.</span></p>
-                                <button class="buy_button">Купить</button>
-                            </div>
-                        </div>
-                @endforeach
-
-
-            </div>
-            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                <div class="post_recommendations post">
+                    <div class="product_image">
+                        <img src="{{ Storage::url($product->image) }}" alt="{{ $product->title }}">
+                    </div>
+                    <div class="product_info">
+                        <a href="{{ route('main.home.show', $product->id) }}" class="product_title">
+                            <b>{{ $product->title }}</b>
+                        </a>
+                        <br>
+                        <span class="category_title_span">Категория : {{$category->title}}</span>
+                        <br>
+                        <p class="product_description">{{ $product->description }}</p>
+                        <p class="price_product_span">Цена: <span class="price">{{ $product->price }} руб.</span></p>
+                        <button class="buy_button">Купить</button>
+                    </div>
+                </div>
+            @endforeach
         </div>
-
         <h2><img src="{{asset('img/12.png')}}" alt="" class="catalog_img"> Случайные товары</h2>
 
         <div class="posts_recommendations">
@@ -130,26 +121,35 @@
                 </div>
             @endforeach
         </div>
-        <div class="">
-            @foreach ($product_pag as $product)
 
-                <div class="post_recommendations post">
-                    <div class="product_image">
-                        <img src="{{ Storage::url($product->image) }}" alt="{{ $product->title }}">
+        <div class="carousel" id="carousel1">
+            <h2><img src="{{asset('img/12.png')}}" alt="" class="catalog_img"> Сезонные товары</h2>
+            <div class="carousel-container">
+
+                @foreach ($product_pag as $product)
+                    <div class="post">
+                        <div class="product_image">
+                            <img src="{{ Storage::url($product->image) }}" alt="{{ $product->title }}">
+                        </div>
+                        <div class="product_info">
+                            <a href="{{ route('main.home.show', $product->id) }}" class="product_title">
+                                <b>{{ $product->title }}</b>
+                            </a>
+                            <br>
+                            <span class="category_title_span">Категория : {{$category->title}}</span>
+                            <br>
+                            <p class="product_description">{{ $product->description }}</p>
+                            <p class="price_product_span">Цена: <span
+                                    class="price">{{ $product->price }} руб.</span></p>
+                            <button class="buy_button">Купить</button>
+                        </div>
                     </div>
-                    <div class="product_info">
-                        <a href="{{ route('main.home.show', $product->id) }}" class="product_title">
-                            <b>{{ $product->title }}</b>
-                        </a>
-                        <br>
-                        <span class="category_title_span">Категория : {{$category->title}}</span>
-                        <br>
-                        <p class="product_description">{{ $product->description }}</p>
-                        <p class="price_product_span">Цена: <span class="price">{{ $product->price }} руб.</span></p>
-                        <button class="buy_button">Купить</button>
-                    </div>
-                </div>
-            @endforeach
+                @endforeach
+
+
+            </div>
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
         </div>
 
 
