@@ -13,10 +13,20 @@
 <script src="{{ asset('js/main.js') }}"></script>
 
 @include('main.home.header')
+
 <div class="container">
 
     <div class="path">
-        <span class="title_category"> ⌂ ❯ Категория товара ❯ {{$category->title}}</span>
+        <span class="title_category"> ⌂ ❯ Категория товара ❯ {{$category->title}} ❯</span>
+        @if ($category->subcategories && $category->subcategories->isNotEmpty())
+                @foreach ($category->subcategories as $subcategory)
+                    <span class="title_category">
+                        {{ $subcategory->title }}
+                    </span>
+                @endforeach
+        @else
+            <span>Подкатегории не найдены</span>
+        @endif
     </div>
 
     <a href="" class="title_post"><b>{{ $product->title }}</b></a>
@@ -89,7 +99,7 @@
     </div>
 </div>
 
-{{--@include('main.home.comment')--}}
+@include('main.home.comment')
 
 <div class="container">
     <h2><img src="{{asset('img/12.png')}}" alt="" class="catalog_img"> Похожие товары</h2>

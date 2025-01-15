@@ -14,7 +14,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class OrderController extends Controller
 {
-    public function __construct(private OrderService $orderService)
+    public function __construct(private readonly OrderService $orderService)
     {
     }
 
@@ -30,8 +30,8 @@ class OrderController extends Controller
     public function create(): View
     {
         $orders = Order::all();
-        return view('admin.orders.create', ['orders'=> $orders]);
 
+        return view('admin.orders.create', ['orders'=> $orders]);
     }
 
     public function store(StoreOrderRequest $request): RedirectResponse

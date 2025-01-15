@@ -15,6 +15,7 @@ class Permission extends Model
     use SoftDeletes;
     use HasFactory;
     protected $fillable = ['name'];
+    protected $table = 'permissions';
 
     public function roles(): BelongsToMany
     {

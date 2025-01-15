@@ -1,0 +1,51 @@
+.container_categories {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    margin: 0 150px 0 140px;
+}
+.main-content {
+    width: 80%;
+    padding-top: 20px;
+}
+.sidebar {
+    width: 20%;
+    padding-top: 20px;
+    color: black;
+    height: 100%;
+    border: 2px solid #4a5568 ;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    padding: 10px 15px;
+}
+
+.sidebar ul li a {
+    color: #000000;
+    text-decoration: none;
+    font-size: 16px;
+}
+.list-categories{
+    font-size: 14px;
+
+    margin-left: 15px;
+}
+.navBase:hover{
+    color: #6f42c1;
+}
+.sub_category{
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+    align-items: center;
+}
+.sub_category:hover{
+    color: #6f42c1;
+}

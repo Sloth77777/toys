@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace App\Modules\AdminPanel\Services\Product;
 
 use App\Models\Product;
-use Illuminate\Database\Eloquent\Collection;
+use App\Models\ProductCategory;
 use Illuminate\Pagination\LengthAwarePaginator;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Collection;use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class ProductService
@@ -43,22 +43,9 @@ class ProductService
         return $this;
     }
 
-    public function getLimitedProducts($limit): Collection
-    {
-        return Product::query()->limit($limit)->get();
-    }
-
-    /**
-     * @return Collection
-     */
     public function getAllProducts(): Collection
     {
         return Product::all();
-    }
-
-    public function getOneProducts(int $id)
-    {
-        return Product::query()->findOrFail($id);
     }
 
     public function getPaginatedProducts(int $limit): LengthAwarePaginator
@@ -67,6 +54,7 @@ class ProductService
             ->inRandomOrder()
             ->limit($limit)
             ->pluck('id');
+
         return Product::query()
             ->whereIn('id', $randomIds)
             ->paginate($limit);
@@ -80,4 +68,32 @@ class ProductService
             ->limit(3)
             ->get();
     }
+    public function getOneProduct(int $id): Product
+    {
+        return Product::query()->findOrFail($id);
+    }
+    public function getProductsByCategory(int $categoryId): Collection
+    {
+        return Product::query()->where('category_id', $categoryId)->get();
+    }
+
+    public function getProductsByCategoryAndSubcategories(int $categoryId, Collection $subcategories): Collection
+    {
+        $products = Product::query()->where('category_id', $categoryId)->get();
+
+        foreach ($subcategories as $subcategory) {
+            $products = $products->merge(Product::query()->where('category_id', $subcategory->id)->get());
+        }
+
+        return $products;
+    }
+
+    public function getSearchProducts(string $search = null): Collection
+    {
+        if (empty($search)) {
+            return collect();
+        }
+        return Product::query()->where('title', 'like', '%' . $search . '%')->get();
+    }
+
 }

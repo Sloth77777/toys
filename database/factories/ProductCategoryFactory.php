@@ -21,6 +21,7 @@ class ProductCategoryFactory extends Factory
     {
         return [
             'title' => $this->faker->words(2, true),
+            'parent_id' => $this->faker->randomElement([null, 1, 2, 3]),
             'deleted_at' => null,
         ];
     }

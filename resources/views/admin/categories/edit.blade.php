@@ -15,6 +15,18 @@
             @endif
         </div>
 
+        <div class="mb-3">
+            <div class="form-group">
+                <label for="parent_id">Родительская категория</label>
+                <select name="parent_id" id="parent_id" class="form-control">
+                    <option value="">Без родителя (основная категория)</option>
+                    @foreach ($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->title }}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
+
         <button type="submit"
                 class="w-full bg-blue-500 text-black font-bold py-2 rounded hover:bg-blue-700 transition duration-200">
             Update Category

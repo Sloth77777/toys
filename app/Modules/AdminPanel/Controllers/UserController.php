@@ -6,12 +6,13 @@ namespace App\Modules\AdminPanel\Controllers;
 
 use App\Models\User;
 use App\Modules\Web\Controllers\Controller;
+use Illuminate\View\View;
 
 class UserController extends Controller
 {
-    public function index()
+    public function index(): View
     {
-        $users = User::all();
+        $users = User::query()->paginate(10);
         return view('admin.users.index',compact('users'));
     }
 }

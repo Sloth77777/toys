@@ -14,9 +14,9 @@
 
 <div class="logo_search">
     <a href="{{route('main.home.index')}}"> <img src="{{ asset('img/Logo.svg') }}" alt=""></a>
-    <form class="form" role="search">
-        <input class="form-control" type="search" placeholder="Что-то ищите?" aria-label="Search">
-        <button class="btn" type="submit"><b>Поиск</b></button>
+    <form action="{{ route('main.home.search') }}" method="get">
+        <input class="form-control"  type="text" name="search" value="{{ request('search') }}" placeholder="Поиск...">
+        <button class="btn-search" type="submit">Поиск</button>
     </form>
 
     <div class="phone">
@@ -26,23 +26,35 @@
     <div class="menu_icon">
         <ul>
             <li>
-                <a href="">
                     <img src="{{ asset('img/heart.png') }}" alt="">
-                    <span><b><a href="#">Желания</a></b></span>
-                </a>
+                    <span><b><a href="#" class="header-cart">Желания</a></b></span>
             </li>
             <li>
-                <a href="">
                     <img src="{{ asset('img/shopping-cart.png') }}" alt="">
-                    <span><b><a href="#">Корзина</a></b></span>
-                </a>
+                    <span><b><a href="#" class="header-cart">Корзина</a></b></span>
             </li>
-            <li>
-                <a href="">
-                    <img src="{{ asset('img/user.png') }}" alt="">
-                    <span><b><a href="#" style="text-decoration: none">Вход</a></b></span>
-                </a>
-            </li>
+
+            @guest
+                <li>
+                    <a href="{{ route('login') }}">
+                        <img src="{{ asset('img/user.png') }}" alt="">
+                        <span class="header-cart"><b>Вход</b></span>
+                    </a>
+                    <a href="{{ route('register') }}">
+                        <span class="header-cart"><b>Регистрация</b></span>
+                    </a>
+                </li>
+            @endguest
+
+            @auth
+                <li>
+                    <a href="{{url('/dashboard')}}" >
+                        <img src="{{ asset('img/user.png') }}" alt="">
+                        <span class="header-cart"><b>Профиль</b></span>
+                    </a>
+                </li>
+            @endauth
+
         </ul>
     </div>
 </div>

@@ -1763,53 +1763,8 @@ License: You must have a valid license purchased only from themeforest(the above
                             <i data-tw-merge="" data-lucide="x" class="stroke-[1] w-8 h-8 text-white"></i>
                         </a>
                     </div>
-                    <div
-                        class="scrollable-ref w-full h-full z-20 px-5 overflow-y-auto overflow-x-hidden pb-3 [-webkit-mask-image:-webkit-linear-gradient(top,rgba(0,0,0,0),black_30px)] [&:-webkit-scrollbar]:w-0 [&:-webkit-scrollbar]:bg-transparent [&_.simplebar-content]:p-0 [&_.simplebar-track.simplebar-vertical]:w-[10px] [&_.simplebar-track.simplebar-vertical]:mr-0.5 [&_.simplebar-track.simplebar-vertical_.simplebar-scrollbar]:before:bg-slate-400/30">
-                        <ul class="scrollable">
-                            <!-- BEGIN: First Child -->
-                            <li class="side-menu__divider">
-                                USER MANAGEMENT
-                            </li>
-                            <li>
-                                <a href="{{ route('admin.users.index') }}" class="side-menu__link side-menu__link--active ">
-                                    <i data-tw-merge="" data-lucide="user-square"
-                                       class="stroke-[1] w-5 h-5 side-menu__link__icon"></i>
-                                    <div class="side-menu__link__title">Users</div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ route('admin.products.index') }}" class="side-menu__link side-menu__link--active ">
-                                    <i data-tw-merge="" data-lucide="user-square"
-                                       class="stroke-[1] w-5 h-5 side-menu__link__icon"></i>
-                                    <div class="side-menu__link__title">Products </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ route('admin.categories.index') }}" class="side-menu__link side-menu__link--active ">
-                                    <i data-tw-merge="" data-lucide="user-square"
-                                       class="stroke-[1] w-5 h-5 side-menu__link__icon"></i>
-                                    <div class="side-menu__link__title">Categories </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ route('admin.orders.index') }}" class="side-menu__link side-menu__link--active ">
-                                    <i data-tw-merge="" data-lucide="user-square"
-                                       class="stroke-[1] w-5 h-5 side-menu__link__icon"></i>
-                                    <div class="side-menu__link__title">Orders</div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ route('admin.roles.index') }}" class="side-menu__link side-menu__link--active ">
-                                    <i data-tw-merge="" data-lucide="user-square"
-                                       class="stroke-[1] w-5 h-5 side-menu__link__icon"></i>
-                                    <div class="side-menu__link__title">Roles</div>
-                                </a>
-                            </li>
-                                <!-- BEGIN: Second Child -->
-                                <!-- END: Second Child -->
-                                <!-- END: First Child -->
-                        </ul>
-                    </div>
+
+                    <x-admin.menu></x-admin.menu>
                 </div>
             </div>
         </div>

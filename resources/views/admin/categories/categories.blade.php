@@ -9,13 +9,9 @@
                         Categories
                     </div>
                     <div class="flex flex-col gap-x-3 gap-y-2 sm:flex-row md:ml-auto">
-                        <a data-tw-merge data-tw-toggle="modal"
-                           data-tw-target="#header-footer-modal-preview"
-                           href="{{ route('admin.categories.create') }}"
-                                class=" transition duration-200 border shadow-sm inline-flex items-center justify-center py-2 px-3 rounded-md font-medium cursor-pointer focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus-visible:outline-none dark:focus:ring-slate-700 dark:focus:ring-opacity-50 [&:hover:not(:disabled)]:bg-opacity-90 [&:hover:not(:disabled)]:border-opacity-90 [&:not(button)]:text-center disabled:opacity-70 disabled:cursor-not-allowed bg-primary border-primary text-white dark:border-primary group-[.mode--light]:!border-transparent group-[.mode--light]:!bg-white/[0.12] group-[.mode--light]:!text-slate-200">
-                            <i data-tw-merge="" data-lucide="pen-line" class="mr-2 h-4 w-4 stroke-[1.3]"></i>
+                        <x-admin.add-button href="{{ route('admin.categories.create') }}">
                             Add New Category
-                        </a>
+                        </x-admin.add-button>
                     </div>
                 </div>
                 <div class="mt-3.5 flex flex-col gap-8">
@@ -32,6 +28,10 @@
                                     <td data-tw-merge=""
                                         class="px-5 border-b dark:border-darkmode-300 border-t border-slate-200/60 bg-slate-50 py-4 font-medium text-slate-500">
                                         Title
+                                    </td>
+                                    <td data-tw-merge=""
+                                        class="px-5 border-b dark:border-darkmode-300 border-t border-slate-200/60 bg-slate-50 py-4 font-medium text-slate-500">
+                                        SubCategory
                                     </td>
                                     <td data-tw-merge=""
                                         class="px-5 border-b dark:border-darkmode-300 w-20 border-t border-slate-200/60 bg-slate-50 py-4 text-center font-medium text-slate-500">
@@ -64,7 +64,37 @@
                                             class="px-5 border-b dark:border-darkmode-300 w-80 border-dashed py-4 dark:bg-darkmode-600">
                                             <div class="flex items-center">
                                                 <div class="ml-3.5">
-                                                        {{ $category->title }}
+                                                    {{ $category->title }}
+                                                </div>
+                                            </div>
+                                        </td>
+
+                                        @if ($category->subcategories->isNotEmpty())
+                                            <td data-tw-merge=""
+                                                class="px-5 border-b dark:border-darkmode-300 w-80 border-dashed py-4 dark:bg-darkmode-600">
+                                                <div class="flex items-center">
+                                                    <div class="ml-3.5">
+                                                        @foreach ($category->subcategories as $subcategory)
+                                                          <li>  {{ $subcategory->title }}</li>
+                                                        @endforeach
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        @else
+                                            <td data-tw-merge=""
+                                                class="px-5 border-b dark:border-darkmode-300 w-80 border-dashed py-4 dark:bg-darkmode-600">
+                                                <div class="flex items-center">
+                                                    <div class="ml-3.5">
+                                            Нет подкатегорий
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        @endif
+                                        <td data-tw-merge=""
+                                            class="px-5 border-b dark:border-darkmode-300 w-80 border-dashed py-4 dark:bg-darkmode-600">
+                                            <div class="flex items-center">
+                                                <div class="ml-3.5">
+                                                    {{ $category->created_at }}
                                                 </div>
                                             </div>
                                         </td>
@@ -72,15 +102,7 @@
                                             class="px-5 border-b dark:border-darkmode-300 w-80 border-dashed py-4 dark:bg-darkmode-600">
                                             <div class="flex items-center">
                                                 <div class="ml-3.5">
-                                                        {{ $category->created_at }}
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td data-tw-merge=""
-                                            class="px-5 border-b dark:border-darkmode-300 w-80 border-dashed py-4 dark:bg-darkmode-600">
-                                            <div class="flex items-center">
-                                                <div class="ml-3.5">
-                                                        {{ $category->updeted_at }}
+                                                    {{ $category->updeted_at }}
                                                 </div>
                                             </div>
                                         </td>
@@ -136,7 +158,7 @@
             $.post(storeCategoryUrl, {
                 title: $('#title').val(),
             })
-                .done(function() {
+                .done(function () {
                     // window.location.reload();
                 });
         }

@@ -24,7 +24,7 @@ class RoleController extends Controller
 
     public function index(): View
     {
-        $roles = Role::all();
+        $roles = Role::query()->paginate(5);
 
         return view('admin.roles.roles', compact('roles'));
     }
@@ -47,10 +47,8 @@ class RoleController extends Controller
 
     public function edit(int $id): View
     {
-        $role = Role::query()->findOrFail($id);
-        $permissions = Permission::all();
-
-        return view('admin.roles.edit', ['role' => $role, 'permissions' => $permissions]);
+        $data = $this->roleService->edit($id);
+        return view('admin.roles.edit', $data);
     }
 
     public function update(UpdateRoleRequest $request, int $id): RedirectResponse

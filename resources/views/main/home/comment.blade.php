@@ -1,17 +1,23 @@
-
-{{--    <div class="comment-form">--}}
-{{--        <h2>Оставить комментарий</h2>--}}
-{{--        <form action="{{route('comment.store',$product->id)}}" method="POST">--}}
+{{--<div class="container my-5">--}}
+{{--    <div class="comment-form p-5 bg-white shadow rounded">--}}
+{{--        <h2 class="text-center mb-5 text-primary">Оставить комментарий</h2>--}}
+{{--        <form action="#" method="POST">--}}
 {{--            @csrf--}}
-{{--            <div class="form-group">--}}
-{{--                <label for="message">Комментарий</label>--}}
-{{--                <textarea id="message" name="message" rows="4" required></textarea>--}}
+{{--            <div class="mb-4">--}}
+{{--                <label for="message" class="form-label fw-bold">Ваш комментарий</label>--}}
+{{--                <textarea id="message" name="message" class="form-control" rows="4" placeholder="Введите ваш комментарий" required></textarea>--}}
 {{--            </div>--}}
-
-{{--            <button type="submit">Отправить</button>--}}
+{{--            <button class="py-4 btn btn-primary w-100 text-uppercase fw-bold" type="submit">--}}
+{{--                Отправить--}}
+{{--            </button>--}}
 {{--        </form>--}}
 {{--    </div>--}}
+{{--</div>--}}
 
+
+{{--        @forelse($user)--}}
+{{--            <label for="message_{{ $user->name }}">{{$user->name}}</label>--}}
+{{--        @endforelse--}}
 {{--@foreach($comments as $comment)--}}
 {{--    <div class="form-group">--}}
 {{--        <label for="message_{{ $comment->id }}">Комментарий</label>--}}

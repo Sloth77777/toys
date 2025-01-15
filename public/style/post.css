@@ -61,20 +61,15 @@
     margin-top: 15px;
 }
 
-.post_one button, .post button , .posts_recommendations button {
-    background: #004ca5;
-    color: #fff;
+.post_one button, .post button, .posts_recommendations button {
+    padding: 10px 20px;
+    background-color: #004ca5;
+    color: white;
     border: none;
-    font-size: 24px;
-    font-weight: bold;
-    width: 270px;
     border-radius: 5px;
-    padding: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    font-size: 16px;
     cursor: pointer;
-    text-align: center;
-    display: inline-block;
+    transition: background-color 0.3s ease;
 }
 
 .post_one button:hover {
@@ -88,7 +83,7 @@
     margin-top: 20px;
 }
 
-.buy img{
+.buy img {
     width: 30px;
     height: auto;
     align-items: center;
@@ -166,13 +161,13 @@
     font-size: 13px;
     padding: 11px;
     text-decoration: none;
-    border-bottom: 1px solid #ddd; /* Лінія між елементами */
+    border-bottom: 1px solid #ddd;
 }
 
 .delivery img {
     width: 24px;
     height: 24px;
-    margin-right: 15px; /* Відступ між іконкою та текстом */
+    margin-right: 15px;
 }
 
 .delivery span {
@@ -180,30 +175,16 @@
     color: #777;
     padding-left: 10px;
 }
-.delivery button{
-    text-decoration: none;
-    font-size: 12px;
-    background: #dddddd;
-    color: blue;
-    height: 28px;
-    width: 150px;
-    align-items: center;
-    justify-items: center;
-    margin-left: 40px;
-}
 
-.delivery button:hover{
-    color: white;
-}
-
-.posts_recommendations{
+.posts_recommendations {
     display: flex;
     margin: 10px;
     flex-direction: row;
     padding: 15px;
     box-sizing: border-box;
 }
-.post_recommendations{
+
+.post_recommendations {
     margin: 10px;
     border: 1px solid #e1e1e1;
     border-radius: 5px;
@@ -213,21 +194,114 @@
     box-sizing: border-box;
     align-items: center;
 }
-.post_recommendations a{
+
+.post_recommendations a {
     text-decoration: none;
     color: #474747;
 }
-.category_title_span{
+
+.category_title_span {
     color: #4a5568;
 }
-.price_product_span{
+
+.price_product_span {
     color: #a14747;
 }
-.posts_recommendations span{
+
+.posts_recommendations span {
     font-size: 14px;
 }
 
-.post_recommendations img{
+.post_recommendations img {
     width: 310px;
     height: auto;
+}
+
+.under_cap {
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.product{
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: calc(33% - 10px);
+    transition: transform 0.3s ease;
+    text-align: center;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.post_recommendations {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        width: calc(33% - 20px);
+        padding: 15px;
+        transition: transform 0.3s ease;
+        text-align: center;
+        overflow: hidden;
+        margin-bottom: 20px;
+}
+
+.post_recommendations:hover {
+    transform: translateY(-10px);
+}
+
+.product_image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.product_info {
+    padding: 10px 0;
+}
+
+.product_title {
+    font-size: 18px;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.product_title:hover {
+    color: #ff6b6b;
+}
+
+.price_product_span {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.price {
+    color: #ff6b6b;
+}
+
+.buy_button {
+    padding: 10px 20px;
+    background-color: #004ca5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.buy_button:hover {
+    background-color: #ff3d3d;
 }

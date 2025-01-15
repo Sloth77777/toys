@@ -9,10 +9,9 @@
                         Roles
                     </div>
                     <div class="d-flex flex-column flex-md-row ms-md-auto">
-                        <a href="{{ route('admin.roles.create') }}"
-                           class="btn btn-outline-primary text-decoration-none d-flex align-items-center">
+                        <x-admin.add-button href="{{ route('admin.roles.create') }}">
                             Add New Role
-                        </a>
+                        </x-admin.add-button>
                     </div>
 
                 </div>

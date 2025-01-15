@@ -12,7 +12,7 @@ class RoleService
 {
     public function store(array $data): self
     {
-        $role = Role::create([
+        $role = Role::query()->create([
             'title' => $data['title'],
         ]);
 
@@ -20,11 +20,23 @@ class RoleService
             $role->permissions()->sync($data['permissions']);
         }
 
-        return $this;
+        return $role;
     }
+
+    public function edit(int $id): array
+    {
+        $role = Role::query()->findOrFail($id);
+        $permissions = Permission::all();
+
+        return [
+            'role' => $role,
+            'permissions' => $permissions,
+        ];
+    }
+
     public function update(int $id, array $data): self
     {
-        $role = Role::findOrFail($id);
+        $role = Role::query()->findOrFail($id);
         $role->update($data);
 
         if (isset($data['permissions'])) {
@@ -36,7 +48,7 @@ class RoleService
 
     public function delete(int $id): self
     {
-        $role = Role::findOrFail($id);
+        $role = Role::query()->findOrFail($id);
         $role->delete();
 
         return $this;

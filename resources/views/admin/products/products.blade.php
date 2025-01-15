@@ -9,10 +9,9 @@
                         Products
                     </div>
                     <div class="d-flex flex-column flex-md-row ms-md-auto">
-                        <a href="{{ route('admin.products.create') }}"
-                           class="btn btn-outline-primary text-decoration-none d-flex align-items-center">
+                        <x-admin.add-button href="{{ route('admin.products.create') }}">
                             Add New Product
-                        </a>
+                        </x-admin.add-button>
                     </div>
 
                 </div>
@@ -33,7 +32,7 @@
                                     </td>
 
                                     <td data-tw-merge=""
-                                        class="px-5 border-b dark:border-darkmode-300 border-t border-slate-200/60 bg-slate-50 py-4 font-medium text-slate-500">
+                                        class="px-5 border-b dark:border-darkmode-300 border-t border-slate-200/60 bg-slate-50 py-2 font-medium text-slate-500">
                                         Description
                                     </td>
                                     <td data-tw-merge=""
@@ -75,76 +74,38 @@
                                             <input data-tw-merge="" type="checkbox"
                                                    class="transition-all duration-100 ease-in-out shadow-sm border-slate-200 cursor-pointer rounded focus:ring-4 focus:ring-offset-0 focus:ring-primary focus:ring-opacity-20 dark:bg-darkmode-800 dark:border-transparent dark:focus:ring-slate-700 dark:focus:ring-opacity-50">
                                         </td>
-                                        <td data-tw-merge=""
-                                            class="px-5 border-b dark:border-darkmode-300 border-dashed py-4 dark:bg-darkmode-600 w-1/5">
-                                            <div class="flex items-center">
-                                                <div class="ml-3.5">
-                                                    <a class="whitespace-nowrap font-medium text-decoration-none" href="">
-                                                        {{ $product->title }}
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </td>
 
-                                        <td data-tw-merge=""
-                                            class="px-5 border-b dark:border-darkmode-300 border-dashed py-4 dark:bg-darkmode-600 w-1/6">
-                                            <div class="flex items-center">
-                                                <div class="ml-3.5">
-                        <span class="whitespace-normal font-medium">
-                            {{ $product->description }}
-                        </span>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td data-tw-merge=""
-                                            class="px-5 border-b dark:border-darkmode-300 border-dashed py-4 dark:bg-darkmode-600 w-1/6">
-                                            <div class="flex items-center">
-                                                <div class="ml-3.5">
-                                                    <img src="{{ $product->image }}" alt="{{ $product->title }}"
-                                                         class="max-w-[80px] max-h-[80px] object-cover"/>pp
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td data-tw-merge=""
-                                            class="px-5 border-b dark:border-darkmode-300 border-dashed py-4 dark:bg-darkmode-600 w-1/6">
-                                            <div class="flex items-center">
-                                                <div class="ml-3.5">
-                        <span class="whitespace-nowrap font-medium">
-                            {{ $product->price }}
-                        </span>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td data-tw-merge=""
-                                            class="px-5 border-b dark:border-darkmode-300 border-dashed py-4 dark:bg-darkmode-600 w-1/6">
-                                            <div class="flex items-center">
-                                                <div class="ml-3.5">
-                        <span class="whitespace-nowrap font-medium">
-                            {{ $product->discount }}
-                        </span>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td data-tw-merge=""
-                                            class="px-5 border-b dark:border-darkmode-300 border-dashed py-4 dark:bg-darkmode-600 w-1/6">
-                                            <div class="flex items-center">
-                                                <div class="ml-3.5">
-                        <span class="whitespace-nowrap font-medium">
-                            {{ $product->created_at }}
-                        </span>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td data-tw-merge=""
-                                            class="px-5 border-b dark:border-darkmode-300 border-dashed py-4 dark:bg-darkmode-600 w-1/6">
-                                            <div class="flex items-center">
-                                                <div class="ml-3.5">
-                        <span class="whitespace-nowrap font-medium">
-                            {{ $product->updated_at }}
-                        </span>
-                                                </div>
-                                            </div>
-                                        </td>
+                                        <x-admin.td-product :style="'width: 200px'">
+                                            <a class="font-medium text-decoration-none" href="">
+                                                {{ $product->title }}
+                                            </a>
+                                        </x-admin.td-product>
+
+                                        <x-admin.td-product :style="'width: 400px'">
+                                            {{ $product->description }}
+                                        </x-admin.td-product>
+
+                                        <x-admin.td-product>
+                                            <img src="{{ $product->image }}" alt="{{ $product->title }}"
+                                                 class="max-w-[80px] max-h-[80px] object-cover"/>
+                                        </x-admin.td-product>
+
+                                        <x-admin.td-product>
+                                            {{ $product->price }}
+                                        </x-admin.td-product>
+
+                                        <x-admin.td-product>
+                                            {{ $product->discount }}
+                                        </x-admin.td-product>
+
+                                        <x-admin.td-product>
+                                            {{ $product->created_at }}
+                                        </x-admin.td-product>
+
+                                        <x-admin.td-product>
+                                            {{ $product->updated_at }}
+                                        </x-admin.td-product>
+
                                         <td data-tw-merge=""
                                             class="px-5 border-b dark:border-darkmode-300 border-dashed py-4 dark:bg-darkmode-600 w-1/6">
                                             <div class="flex items-center">

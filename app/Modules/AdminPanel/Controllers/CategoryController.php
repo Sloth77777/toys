@@ -14,22 +14,23 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class CategoryController extends Controller
 {
-    public function __construct(private CategoryService $categoryService)
+    public function __construct(private readonly CategoryService $categoryService)
     {
     }
 
     public function index(): View
     {
-        $categories = ProductCategory::query()->paginate(10);
+        $categories = $this->categoryService->index();
 
-        return view('admin.categories.categories', compact('categories'), [
-            'categories' => $categories
-        ]);
+        return view('admin.categories.categories', compact('categories'));
     }
 
     public function create(): View
     {
-        return view('admin.categories.create', []);
+        $categories = ProductCategory::all();
+        return view('admin.categories.create', [
+            'categories' => $categories
+        ]);
     }
 
     public function store(CategoryRequest $request): RedirectResponse
@@ -38,11 +39,11 @@ class CategoryController extends Controller
         return redirect()->route('admin.categories.index');
     }
 
-    public function edit(ProductCategory $category): View
+    public function edit(int $id): View
     {
-        return view('admin.categories.edit', [
-            'categories' => $category
-        ]);
+        $category = ProductCategory::query()->findOrFail($id);
+
+        return view('admin.categories.edit', compact('category'));
     }
 
     public function update(CategoryRequest $request, int $id): RedirectResponse

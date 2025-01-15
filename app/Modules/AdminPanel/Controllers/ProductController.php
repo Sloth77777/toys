@@ -8,6 +8,7 @@ use App\Http\Requests\Admin\Product\StoreProductRequest;
 use App\Http\Requests\Admin\Product\UpdateProductRequest;
 use App\Models\Product;
 use App\Models\ProductCategory;
+use App\Models\Trait\HasSlug;
 use App\Modules\AdminPanel\Services\Product\ProductService;
 use App\Modules\Web\Controllers\Controller;
 use Illuminate\View\View;
@@ -29,6 +30,7 @@ class ProductController extends Controller
     public function create(): View
     {
         $categories = ProductCategory::all();
+
         return view('admin.products.create', [
             'categories' => $categories
         ]);
