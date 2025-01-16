@@ -18,6 +18,7 @@
 <div class="container_categories">
 
     <div class="sidebar">
+
         <ul class="list-unstyled">
             <li>
                 <h3>Все Категории</h3>
@@ -30,22 +31,22 @@
                 </li>
             @endforeach
         </ul>
+
         <form method="GET" action="">
             <div class="">
                 <label for="sort_by_price" class="form-label">Сортировать по цене:</label>
                 <select name="sort_by_price" id="sort_by_price" class="form-select">
-                    <option value="">По умолчанию</option>
-                    <option value="asc">По возрастанию</option>
-                    <option value="desc">По убыванию</option>
+                    <option value="" {{ empty($sortByPrice) ? 'selected' : '' }}>По умолчанию</option>
+                    <option value="asc" {{ $sortByPrice == 'asc' ? 'selected' : '' }}>По возрастанию</option>
+                    <option value="desc" {{ $sortByPrice == 'desc' ? 'selected' : '' }}>По убыванию</option>
                 </select>
-            </div>
 
+            </div>
             <div class="col-md-12">
                 <button type="submit" class="buy_button">Применить фильтры</button>
             </div>
         </form>
     </div>
-
 
 
     <div class="main-content">

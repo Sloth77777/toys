@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Modules\AdminPanel\Services\Order;
 
 use App\Models\Order;
+
 class OrderService
 {
     public function store(array $data): self

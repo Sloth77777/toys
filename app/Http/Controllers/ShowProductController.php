@@ -5,10 +5,8 @@ declare(strict_types=1);
 namespace App\Http\Controllers;
 
 use App\Models\Product;
-use App\Models\ProductCategory;
 use App\Modules\AdminPanel\Services\Category\CategoryService;
 use App\Modules\AdminPanel\Services\Product\ProductService;
-use App\Modules\AdminPanel\Services\Role\RoleService;
 use App\Modules\Web\Controllers\Controller;
 use Carbon\Carbon;
 use Illuminate\View\View;

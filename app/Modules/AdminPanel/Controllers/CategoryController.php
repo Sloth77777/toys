@@ -8,7 +8,6 @@ use App\Http\Requests\Admin\Category\CategoryRequest;
 use App\Models\ProductCategory;
 use App\Modules\AdminPanel\Services\Category\CategoryService;
 use App\Modules\Web\Controllers\Controller;
-use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Modules\AdminPanel\Services\Role;
 
 use App\Models\Role;
-use Illuminate\Database\Eloquent\Collection;
 use Spatie\Permission\Models\Permission;
 
 class RoleService

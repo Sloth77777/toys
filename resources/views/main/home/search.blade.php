@@ -29,20 +29,23 @@
                 </li>
             @endforeach
         </ul>
-        <form method="GET" action="">
+        <form method="GET" action="{{ url('/search') }}">
             <div class="">
                 <label for="sort_by_price" class="form-label">Сортировать по цене:</label>
                 <select name="sort_by_price" id="sort_by_price" class="form-select">
-                    <option value="">По умолчанию</option>
-                    <option value="asc">По возрастанию</option>
-                    <option value="desc">По убыванию</option>
+                    <option value="" {{ empty($sortByPrice) ? 'selected' : '' }}>По умолчанию</option>
+                    <option value="asc" {{ $sortByPrice == 'asc' ? 'selected' : '' }}>По возрастанию</option>
+                    <option value="desc" {{ $sortByPrice == 'desc' ? 'selected' : '' }}>По убыванию</option>
                 </select>
             </div>
+
+            <input type="hidden" name="search" value="{{ request('search') }}">
 
             <div class="col-md-12">
                 <button type="submit" class="buy_button">Применить фильтры</button>
             </div>
         </form>
+
     </div>
 
     <div class="main-content">
@@ -62,9 +65,9 @@
                             <div class="product_info">
                                 <a href="{{ route('main.home.show', $product->id) }}" class="product_title">
                                     <b>{{ $product->title }}</b>
-                                </a><br>
+                                </a>
+                                <br>
                                 <span class="title_category"> Категория товара ❯ {{$category->title}}</span>
-
                                 <p class="product_description">{{ $product->description }}</p>
                                 <p class="price_product_span">Цена: <span
                                         class="price">{{ $product->price }} грн.</span>

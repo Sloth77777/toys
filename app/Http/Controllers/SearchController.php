@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Filter\SearchRequest;
 use App\Http\Services\SearchService;
 use App\Models\Product;
 use App\Modules\AdminPanel\Services\Category\CategoryService;
 use App\Modules\AdminPanel\Services\Product\ProductService;
-use Carbon\Carbon;
-use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class SearchController
@@ -23,15 +22,14 @@ class SearchController
         $this->categoryService = $categoryService;
     }
 
-    public function search(Product $product , Request $request): View
-    {
-        $searchTerm = $request->input('search');
+        public function search(Product $product , SearchRequest $request): View
+        {
+            $searchTerm = $request->input('search');
+            $sortByPrice = $request->input('sort_by_price','');
 
-        $products = $this->productService->getSearchProducts($searchTerm);
-        $categories = $this->categoryService->getAllCategories();
-//        $category = $this->categoryService->getOneCategoryProducts($product->category_id);
-//        $subcategories = $this->categoryService->getSubCategories($category->category_id);
+            $products = $this->searchService->getSearchProducts($searchTerm, $sortByPrice);
+            $categories = $this->categoryService->getAllCategories();
 
-        return view('main.home.search', compact( 'products', 'categories','searchTerm'));
-    }
+            return view('main.home.search', compact( 'products', 'categories','searchTerm','sortByPrice'));
+        }
 }

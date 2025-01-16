@@ -2,7 +2,7 @@
     display: flex;
     gap: 20px;
     padding: 20px;
-    margin: 0 150px 0 140px;
+    margin: 0 140px 0 140px;
 }
 .main-content {
     width: 80%;
@@ -48,4 +48,18 @@
 }
 .sub_category:hover{
     color: #6f42c1;
+}
+.buy_button_filter{
+    padding: 10px;
+    background: #000000;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    margin:  -10px 10px 10px 10px;
+}
+
+.buy_button_filter:hover{
+    color: #6f42c1;
+    background: white;
 }

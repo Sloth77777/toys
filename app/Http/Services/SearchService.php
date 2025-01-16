@@ -7,6 +7,7 @@ namespace App\Http\Services;
 use App\Models\Product;
 use App\Modules\AdminPanel\Services\Category\CategoryService;
 use App\Modules\AdminPanel\Services\Product\ProductService;
+use Illuminate\Support\Collection;
 
 class SearchService
 {
@@ -19,16 +20,33 @@ class SearchService
         $this->productService = $productService;
     }
 
-    public function search(string $query): array
+    public function search(string $query, Product $product): array
     {
         $searchTerm = $query;
 
         $category = $this->categoryService->getOneCategory($product->category_id);
 
-        $products = $this->productService->getSearchProducts($searchTerm);
+        $products = $this->getSearchProducts($searchTerm);
 
         $categories = $this->categoryService->getAllCategories();
 
-        return compact('products','categories','category','searchTerm');
+        return compact('products', 'categories', 'category', 'searchTerm');
+    }
+
+    public function getSearchProducts(string $search = null, string $sortByPrice = ''): Collection
+    {
+        if (empty($search)) {
+            return collect();
+        }
+
+        $query = Product::query()
+            ->where(function ($query) use ($search) {
+                $query->where('title', 'like', '%' . $search . '%')
+                    ->orWhere('description', 'like', '%' . $search . '%');
+            });
+
+        $this->productService->SortByPriceProducts($query, $sortByPrice);
+
+        return $query->get();
     }
 }

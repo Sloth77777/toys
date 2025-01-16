@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace App\Modules\AdminPanel\Services\Product;
 
 use App\Models\Product;
-use App\Models\ProductCategory;
 use Illuminate\Pagination\LengthAwarePaginator;
-use Illuminate\Support\Collection;use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class ProductService
@@ -15,10 +15,10 @@ class ProductService
     public function store(array $data): self
     {
         $image = $data['image'];
-        $imageName = Str::random(20) . '.' . $image->extension();
+        $imageName = Str::random(20) . '.' . $data['id'] . '.' . $image->extension();
         $path = Storage::disk('public')->putFileAs('images/products', $image, $imageName);
         $data['image'] = $path;
-        Product::query()->firstOrCreate($data);
+        Product::query()->firstOrCreate(['id' => $data['id']], $data);
 
         return $this;
     }
@@ -26,11 +26,11 @@ class ProductService
     public function update(int $id, array $data): self
     {
         $image = $data['image'];
-        $imageName = Str::random(20) . '.' . $image->extension();
+        $imageName = Str::random(20) . '.' . $data['id'] . '.' . $image->extension();
         $path = Storage::disk('public')->putFileAs('images/products', $image, $imageName);
         $data['image'] = $path;
 
-        $product = Product::query()->findOrFail($id);
+        $product = Product::query()->findOrFail(['id' => $data['id']], $id);
         $product->update($data);
 
         return $this;
@@ -69,32 +69,25 @@ class ProductService
             ->limit(3)
             ->get();
     }
-    public function getOneProduct(int $id): Product
-    {
-        return Product::query()->findOrFail($id);
-    }
-    public function getProductsByCategory(int $categoryId): Collection
-    {
-        return Product::query()->where('category_id', $categoryId)->get();
-    }
 
-    public function getProductsByCategoryAndSubcategories(int $categoryId, Collection $subcategories): Collection
+    public function getProductsByCategoryAndSubcategories(int $categoryId, Collection $subcategories, string $sortByPrice = ''): Collection
     {
-        $products = Product::query()->where('category_id', $categoryId)->get();
+        $query = Product::query()->where('category_id', $categoryId);
 
         foreach ($subcategories as $subcategory) {
-            $products = $products->merge(Product::query()->where('category_id', $subcategory->id)->get());
+            $query->orWhere('category_id', $subcategory->id);
         }
 
-        return $products;
+        $this->SortByPriceProducts($query, $sortByPrice);
+
+        return $query->get();
     }
 
-    public function getSearchProducts(string $search = null): Collection
+
+    public function SortByPriceProducts($query, string $sortByPrice = ''): void
     {
-        if (empty($search)) {
-            return collect();
+        if (!empty($sortByPrice) && ($sortByPrice === 'asc' || $sortByPrice === 'desc')) {
+            $query->orderBy('price', $sortByPrice);
         }
-        return Product::query()->where('title', 'like', '%' . $search . '%')->get();
     }
-
 }

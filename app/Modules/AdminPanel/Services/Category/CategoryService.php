@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace App\Modules\AdminPanel\Services\Category;
 
-use App\Models\Product;
 use App\Models\ProductCategory;
-//use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
+
+//use Illuminate\Database\Eloquent\Collection;
 
 class CategoryService
 {
